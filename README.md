@@ -13,7 +13,7 @@ Ledstrip Audio Visualiser for CoreElec using ESP8266. This is a working release,
 
 The python module and CAVA run on the HTPC, broadcasting audio data over Wifi to 1 or more LED strips. CAVA can use both Pulseaudio and ALSA as audio source. From a browser or using HTTP post calls you can control each individual LED strip.
 
-![Souldlights architecture](architecture.svg)
+![Soundlights architecture](architecture.svg)
 
 ESP/LEDstrip Image by wireKraken https://github.com/wirekraken/ESP8266-Websockets-LED 
 
@@ -103,8 +103,46 @@ Run nohup /storage/soundlights/kodileds.sh & to start the module
 
 Make sure to change the Kodi settings to use the pulseaudio device
 
-.
+## Accessing the web interface
 
+Connect to the IP adres set in the ESP module and the followig interface should appear. Select the desired mode and the LED strip should immediately change. For some modes you can set the color, speed and birghtness as well.
 
+![Webinterface](webinterface.svg)
 
+## Retrieving the current mode
 
+You can request the currect setting using a HTTP GET, which will return a JSON string
+
+```
+{ "mode":<mode number>,
+  "red":<red intensity 0-255>,
+  "blue":<blue intensity 0-255>,
+  "green": <green intensity 0-255>,
+  "brightness": <LED strip brightness 0-255>,
+  "delay": <speed delay in ms>
+  "color": <RGB value in HEX format>}
+```
+
+## Changing the mode using HTTP POST - JSON
+
+You can send using HTTPS POST a JSON string to <ESP IP address>/config/set in the following format:
+
+```
+{"mode":<mode number>,
+  "red":<red intensity 0-255>,
+  "blue":<blue intensity 0-255>,
+  "green": <green intensity 0-255>,
+  "brightness": <LED strip brightness 0-255>,
+  "delay": <speed delay in ms>
+  }
+```
+  
+## Changing a setting using HTTP POST - single value
+
+You can set a signle value posting a value in the HTTP body to the URL <ESP IP address>/config/set/<property>
+  
+For example posting the value 30 to http://xxx.xxx.xxx.xxx/config/set/mode, will change the current mode to 'Sound visualizer'
+  
+  
+## Controlling the LED strip from Openhab 3.1
+  
