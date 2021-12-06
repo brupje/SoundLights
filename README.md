@@ -107,7 +107,7 @@ Make sure to change the Kodi settings to use the pulseaudio device
 
 Connect to the IP adres set in the ESP module and the followig interface should appear. Select the desired mode and the LED strip should immediately change. For some modes you can set the color, speed and birghtness as well.
 
-![Webinterface](webinterface.svg)
+![Webinterface](webinterface.png)
 
 ## Retrieving the current mode
 
