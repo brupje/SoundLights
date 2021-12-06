@@ -1,0 +1,37 @@
+[general]
+bars = 144  
+
+ framerate = 60
+ lower_cutoff_freq=10
+higher_cutoff_freq=20000
+autosens = 0
+sensitivity =5
+[input]
+method = pulse
+source=auto
+ 
+[output]
+bit_format = 8bit
+method = raw
+channels = mono
+data_format = ascii
+bar_delimiter = 32
+ascii_max_range = 255
+
+
+
+[smoothing]
+
+# Percentage value for integral smoothing. Takes values from 0 - 100.
+# Higher values means smoother, but less precise. 0 to disable.
+ integral =1
+
+
+# Disables or enables the so-called "Monstercat smoothing" with or without "waves". Set to 0 to disable.
+; monstercat = 0
+; waves = 0
+
+# Set gravity percentage for "drop off". Higher values means bars will drop faster.
+# Accepts only non-negative values. 50 means half gravity, 200 means double. Set to 0 to disable "drop off".
+ gravity =200
+

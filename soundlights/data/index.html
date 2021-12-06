@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>color picker</title>
+	<meta value="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous"></script>
+			  
+			  <script
+			  src="effects.js"
+			  ></script>
+</head>
+<body>
+  <div id="container">
+    
+    <div id="shower" class="">
+
+      <div id="showedBlock">
+
+        <select id="submenu">
+         <option value="">-- select mode --</option>
+         <option value="30">Sound visualizer</option>
+         <option value="8">Fixed color</option>
+         <option value="31">Fade test</option>
+          <option value="1">rainbow fade</option>
+          <option value="3">rainbow loop</option>
+          <option value="4">random march</option>
+          <option value="5">rgb propeller</option>
+          <option value="6">rotating red blue</option>
+          <option value="7">fire</option>
+
+ 
+          <option value="10">flicker</option>
+
+          <option value="12">sparkle</option>
+
+          <option value="15">blue red bounce</option>
+
+          <option value="17">matrix</option>
+    
+
+          <option value="20">theater chase</option>
+          <option value="21">strobe</option>
+          <option value="22">police blinker</option>
+          <option value="23">kitt</option>
+          <option value="24">rule</option>
+          <option value="25">fade vertical</option>
+          <option value="26">fade to center</option>
+          <option value="27">runner chameleon</option>
+ 
+        </select><br/>
+        
+        Red: <input id="red" value="255"/><br/>
+        Green: <input id="green" value="255"/><br/>
+        Blue: <input id="blue" value="255"/><br/>
+        brightness: <input id="brightness" value="10"/><br/>
+        delay: <input id="delay" value="20"/><br/>
+        
+        <button type="button" onclick="update()">Update</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
