@@ -141,8 +141,24 @@ You can send using HTTPS POST a JSON string to <ESP IP address>/config/set in th
 
 You can set a signle value posting a value in the HTTP body to the URL <ESP IP address>/config/set/<property>
   
-For example posting the value 30 to http://xxx.xxx.xxx.xxx/config/set/mode, will change the current mode to 'Sound visualizer'
+For example posting the value 30 to http://xxx.xxx.xxx.xxx/config/set/<mode>, will change the current mode to 'Sound visualizer'
+  
+For the color property a comma seperated string with rgb values is required. For example 255,0,0 for red.
   
   
 ## Controlling the LED strip from Openhab 3.1
+  
+You can control the LED strip from Openhab using the HTTP binding. Add a HTTP thing and set the following parameters:
+  
+```
+Base URL: http://xxx.xxx.xxx.xxx/config/set
+Command Method: POST
+Content Type: application/json
+```
+  
+Now you can add a channel for each configuration paramter. For each channel set
+  
+```
+State Transformation: $.<property> i.e. '$.color'
+State URL Extension: <property> i.e. 'color', this will ost the value to http://xxx.xxx.xxx.xxx/config/set/color
   
